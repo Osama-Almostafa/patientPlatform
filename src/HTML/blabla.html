@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div>
+
+    <h1>Aftale side: CPR-NUMMER</h1>
+    <hr>
+
+
+    <h1>Vælg venligst Hospital &amp; afdeling</h1>
+    <div>
+        <form target="_blank"
+              onsubmit="try {return window.confirm(&quot;This form may not function properly due to certain security constraints.\nContinue?&quot;);} catch (e) {return false;}">
+            <p>
+                <label>Hospital:
+                    <select name="hospital">
+                        <option value="" selected="">Vælg hospital</option>
+                        <option value="riget">Rigshospitalet</option>
+                        <option value="hill">Hillerød</option>
+                        <option value="gen">Gentofte</option>
+                    </select>
+                </label>
+            </p>
+        </form>
+        <form target="_blank"
+              onsubmit="try {return window.confirm(&quot;This form may not function properly due to certain security constraints.\nContinue?&quot;);} catch (e) {return false;}">
+            <p>
+                <label>Afdeling:
+                    <select name="afdeling">
+                        <option value="" selected="">Vælg afdeling</option>
+                        <option value="kardio">Kardiologisk afd.</option>
+                        <option value="endo">Endokrinologisk afd.</option>
+                        <option value="blod">Blodprøver</option>
+                    </select>
+                </label>
+            </p>
+        </form>
+        <input type="button" name="OK" value="OK">
+    </div>
+    <br>
+
+    <hr>
+    <h1>Nuværende booking(er):</h1>
+    <div>
+        <label>
+            <input name="bestil tid" type="date">
+        </label>
+    </div>
+    <br>
+    <hr>
+    <h1>Tidligere besøg/bookinger:</h1>
+    <div>
+        <p>Få noget til at vise tidligere bookinger</p>
+    </div>
+
+
+    <hr>
+    <p>Oprettet af: Mads, Magnus &amp; Rasmus</p>
+    <p>Kontakt information: <a href="http://su1@server.dk" target="_blank">
+        su1@server.dk</a>.</p>
+    <button title="Go to top">Top</button>
+
+</div>
+</body>
+</html>

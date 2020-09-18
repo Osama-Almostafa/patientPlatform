@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/login-page.css">
+</head>
+
+<body>
+<main id="main-holder">
+    <div id="img-holder">
+        <img src="../img/nemId.png" height="80" width="160"/>
+        <p id="login-header">Nem-id login</p>
+        <form ACTION="home.html" id="login-form">
+            <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Bruger-id">
+            <input type="password" name="password" id="password-field" class="login-form-field"
+                   placeholder="Adgangskode">
+            <label id="remember-label">
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label><br>
+            <button type="submit" id="login-form-submit">Log på</button>
+            <br>
+            <button type="submit" id="afbryd-form-submit">Afbryd</button>
+            <br>
+            <span class="psw">Glemt <a href="#">kode?</a></span>
+        </form>
+    </div>
+</main>
+</body>
+</html>

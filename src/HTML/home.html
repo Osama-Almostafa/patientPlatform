@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../CSS/home.css">
+</head>
+<body>
+<header>
+    <div>
+        <p>Min Sundhedsplatform</p>
+        <ul>
+            <li><a href="home.html">Hjem</a></li>
+            <li><a href="#">Min Journal</a>
+                <ul>
+                    <li><a href="#">Personlige oplysninger</a></li>
+                    <br><br>
+                    <li><a href="#">Tidligere indlæggelse</a></li>
+                    <br><br>
+                    <li><a href="#">Min medicin</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Aftaler</a>
+                <ul>
+                    <li><a href="#">Kommende aftaler</a></li>
+                    <br><br>
+                    <li><a href="#">Bestil tid</a></li>
+                    <br><br>
+                </ul>
+            </li>
+            <li><a href="#">Hjælp</a>
+                <ul>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="box">
+        <h1 id="hospital">Vælg venligst Hospital &amp; afdeling:</h1>
+        <br>
+        <label style="font-size: 30px">Hospital:
+            <select style="font-size: 20px" name="hospital">
+                <option value="" selected="">Vælg hospital</option>
+                <option value="riget">Rigshospitalet</option>
+                <option value="hill">Hillerød</option>
+                <option value="gen">Gentofte</option>
+            </select>
+        </label>
+        <br><br>
+        <label style="font-size: 30px">Afdeling:
+            <select style="font-size: 20px" name="afdeling">
+                <option value="" selected="">Vælg afdeling</option>
+                <option value="kardio">Kardiologisk afd.</option>
+                <option value="endo">Endokrinologisk afd.</option>
+                <option value="blod">Blodprøver</option>
+            </select>
+        </label>
+        <input style="font-size: 20px" type="button" name="OK" value="OK">
+        <br><br>
+        <h1>Bestil tid(er):</h1>
+        <br>
+        <div>
+            <label style="font-size: 20px">
+                <input name="bestil tid" type="date">
+            </label>
+        </div>
+    </div>
+
+</header>
+
+</body>
+</html>
