@@ -9,7 +9,20 @@ header {
     height: 100vh;
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: sans-serif;
 }
+
+h1{
+    text-align: center;
+    color: #fff;
+    margin-top: 70px;
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+
 
 p {
     color: #222;
@@ -17,17 +30,6 @@ p {
     line-height: 55px;
     float: left;
     padding: 0px 20px;
-}
-
-#box {
-    background-color: whitesmoke;
-    margin-top: 200px;
-    margin-left: 30px;
-    width: auto;
-    border: 2px solid;
-    padding: 40px;
-    text-align: left;
-    position: absolute;
 }
 
 ul {

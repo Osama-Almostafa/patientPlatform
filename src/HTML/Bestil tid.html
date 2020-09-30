@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <li><a href="home.html">Hjem</a></li>
+    <link rel="stylesheet" type="text/css" href="../CSS/Bestil tid.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="box">
+        <h1 id="hospital">Vælg venligst Hospital &amp; afdeling:</h1>
+        <br>
+        <label style="font-size: 30px">Hospital:
+            <select style="font-size: 20px" name="hospital">
+                <option value="" selected="">Vælg hospital</option>
+                <option value="riget">Rigshospitalet</option>
+                <option value="hill">Hillerød</option>
+                <option value="gen">Gentofte</option>
+            </select>
+        </label>
+        <br><br>
+        <label style="font-size: 30px">Afdeling:
+            <select style="font-size: 20px" name="afdeling">
+                <option value="" selected="">Vælg afdeling</option>
+                <option value="kardio">Kardiologisk afd.</option>
+                <option value="endo">Endokrinologisk afd.</option>
+                <option value="blod">Blodprøver</option>
+            </select>
+            <br><br>
+            <label for="meeting-time">Bestil tid(er):
+                <br>
+            <input type="datetime-local" id="meeting-time"
+                   name="meeting-time"
+                   min="2000-06-07T00:00" max="2030-06-14T00:00">
+                <input style="font-size: 20px" type="button" name="Bekræft" value="Bekræft">
+            </label>
+        </div>
+    </div>
+</head>
+<body>
+
+</body>
+</html>
