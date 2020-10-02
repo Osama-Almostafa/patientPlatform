@@ -35,7 +35,7 @@ p {
 ul {
     float: left;
     list-style-type: none;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 ul li {
@@ -67,8 +67,9 @@ ul li:hover ul {
 }
 
 ul li ul li {
+    margin-top: 0px;
     width: 240px;
-    border-radius: 4px;
+    border-radius: 2px;
     transition: 1s ease;
 }
 

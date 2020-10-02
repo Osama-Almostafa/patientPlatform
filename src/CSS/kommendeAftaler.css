@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/backGround.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+ul li a {
+    float: left;
+    list-style-type: none;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    padding: 10px 40px;
+    border: 1px solid transparent;
+    transition: 0.6s ease;
+}
+
+ul li a:hover {
+    background-color: black;
+    color: white;
+}
+
+table {
+    width: 1200px;
+    height: 50px;
+    position: relative;
+    top: 120px;
+    right: 0px;
+}
+caption{
+    color: aqua;
+    font-size: 45px;
+}
+th {
+    text-align: center;
+    background-color: transparent;
+}
+
+table, th, td {
+    text-align: center;
+    width: 1000px;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    color: black;
+}
+
+th, td {
+    padding: 15px;
+    width: auto;
+}
+
+tr:nth-child(even) {
+    background-color: lightskyblue;
+}
+
+tr:nth-child(odd) {
+    background-color: lightsalmon;
+}
+
+ul li.active a {
+    background-color: white;
+    color: black;
+}
+

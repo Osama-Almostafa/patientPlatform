@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <li><a href="home.html">Hjem</a></li>
+    <title>Tid reservertion</title>
+    <ul><li><a href="home.html">Hjem</a></li></ul>
     <link rel="stylesheet" type="text/css" href="../CSS/Bestil tid.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div id="box">
@@ -25,15 +25,17 @@
                 <option value="endo">Endokrinologisk afd.</option>
                 <option value="blod">Blodprøver</option>
             </select>
+            </label>
             <br><br>
             <label for="meeting-time">Bestil tid(er):
                 <br>
             <input type="datetime-local" id="meeting-time"
                    name="meeting-time"
-                   min="2000-06-07T00:00" max="2030-06-14T00:00">
-                <input style="font-size: 20px" type="button" name="Bekræft" value="Bekræft">
+                   min="2000-06-07T00:00" max="2030-06-14T00:00"/>
+                <form action="kommendeAftaler.html">
+                    <input type="submit" style="font-size: 20px" value="Bekræft"/>
+                </form>
             </label>
-        </div>
     </div>
 </head>
 <body>
