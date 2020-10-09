@@ -5,7 +5,7 @@
 }
 
 header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/backGround.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Images/backGround.jpg");
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -22,7 +22,6 @@ h1{
     font-size: 45px;
     letter-spacing: 2px;
 }
-
 
 p {
     color: #222;
@@ -76,40 +75,47 @@ ul li ul li {
 ul li ul li a {
     padding: 10px 40px;
 }
-.wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0,0.6);
-    max-width: 550px;
-    width: 100%;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 5px;
+
+ul li.active a {
+    background-color: white;
+    color: black;
 }
 
-.wrapper .input {
-    width: 85%;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.searchbtn {
-    background: #ffec00;
-    width: 10%;
-    border-radius: 5px;
+table {
+    width: 100px;
+    height: 150px;
     position: relative;
-    cursor: pointer;
+    top: 50px;
+    left: 20px;
 }
 
-.searchbtn .fas{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px;
+caption{
+    color: aqua;
+    font-size: 45px;
+}
+
+th {
+    text-align: center;
+    background-color: transparent;
+}
+
+table, th, td {
+    text-align: center;
+    width: 500px;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    color: black;
+}
+
+th, td {
+    padding: 15px;
+    width: auto;
+}
+
+tr:nth-child(even) {
+    background-color: lightgoldenrodyellow;
+}
+
+tr:nth-child(odd) {
+    background-color: lightsalmon;
 }
