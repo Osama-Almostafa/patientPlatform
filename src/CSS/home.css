@@ -1,10 +1,11 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
 }
 
-header {
+
+body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Images/backGround.jpg");
     height: 100vh;
     background-size: cover;
@@ -12,7 +13,6 @@ header {
     display: flex;
     justify-content: center;
     align-content: center;
-    font-family: sans-serif;
 }
 
 h1{
@@ -28,7 +28,7 @@ p {
     font-size: 30px;
     line-height: 55px;
     float: left;
-    padding: 0px 20px;
+    padding: 0 20px;
 }
 
 ul {
@@ -84,14 +84,15 @@ ul li.active a {
 table {
     width: 100px;
     height: 150px;
-    position: relative;
-    top: 50px;
-    left: 20px;
+    position: fixed;
+    margin-top: 200px;
+    justify-items: center;
+    align-items: center;
 }
 
 caption{
-    color: aqua;
-    font-size: 45px;
+    color: black;
+    font-size: 35px;
 }
 
 th {
