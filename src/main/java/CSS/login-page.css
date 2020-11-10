@@ -5,6 +5,9 @@
 }
 
 body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Images/backGround.jpg");
+    background-size: cover;
+    background-position: center;
     display: grid;
     justify-items: center;
     align-items: center;
@@ -12,9 +15,9 @@ body {
 }
 
 #main-holder {
-    margin-top: 100px;
+    margin-top: 17%;
     width: 25%;
-    height: 90%;
+    height: 75%;
     display: grid;
     justify-items: center;
     align-items: center;
