@@ -3,42 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Tid reservertion</title>
-    <ul><li><a href="home.html">Hjem</a></li></ul>
+    <ul>
+        <li><a href="home.html">Hjem</a></li>
+    </ul>
     <link rel="stylesheet" type="text/css" href="../CSS/Bestil tid.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div id="box">
         <h1 id="hospital">Vælg venligst Hospital &amp; afdeling:</h1>
         <br>
         <label style="font-size: 30px">Hospital:
-            <select style="font-size: 20px" name="hospital">
-                <option value="" selected="">Vælg hospital</option>
-                <option value="riget">Rigshospitalet</option>
-                <option value="hill">Hillerød</option>
-                <option value="gen">Gentofte</option>
+            <select style="font-size: 20px">
+                <option>Vælg hospital</option>
+                <option>Amager Hospital</option>
+                <option>Bispebjerg Hospital</option>
+                <option>Frederiksberg Hospital</option>
+                <option>Gentofte hospital</option>
+                <option>Glostrup hospital</option>
+                <option>Herlev hospital</option>
+                <option>Hillerød hospital</option>
+                <option>Holbæk hospital</option>
+                <option>Hvidovre hospital</option>
+                <option>Køge hospital</option>
+                <option>Rigshospitalet</option>
+                <option>Roskilde hospital</option>
             </select>
         </label>
         <br><br>
         <label style="font-size: 30px">Afdeling:
-            <select style="font-size: 20px" name="afdeling">
-                <option value="" selected="">Vælg afdeling</option>
-                <option value="kardio">Kardiologisk afd.</option>
-                <option value="endo">Endokrinologisk afd.</option>
-                <option value="blod">Blodprøver</option>
+            <select style="font-size: 20px">
+                <option>Vælg afdeling</option>
+                <option>Blodprøver</option>
+                <option>Billeddiagnostisk Afdeling</option>
+                <option>Børne- og Ungeafdelingen</option>
+                <option>Endokrinologisk og Nefrologisk Afdeling</option>
+                <option>Graviditet, Fødsel & Barsel</option>
+                <option>Kardiologisk Afdeling</option>
+                <option>Kirurgisk Afdeling</option>
+                <option>Lunge- og Infektionsmedicinsk Afdeling</option>
+                <option>Neurofysiologisk Klinik</option>
+                <option>Onkologisk og Palliativ Afdeling</option>
+                <option>Reumatologisk Afdeling</option>
+                <option>Øre, Næse og Halsafdelingen</option>
             </select>
-            </label>
+        </label>
+        <br><br>
+        <label for="meeting-time">Bestil tid og dato:
             <br><br>
-            <label for="meeting-time">Bestil tid(er):
-                <br>
             <input type="datetime-local" id="meeting-time"
                    name="meeting-time"
-                   min="2000-06-07T00:00" max="2030-06-14T00:00"/>
-                <form>
-                    <input type="submit" style="font-size: 20px" value="Bekræft"/>
-                </form>
-            </label>
+                   min="2020-11-07T00:00" max="2030-12-14T00:00"/>
+            <br><br>
+            <form method="get">
+                <input type="submit" style="font-size: 20px" value="Bekræft"/>
+            </form>
+        </label>
     </div>
 </head>
 <body>
-
 </body>
 </html>
