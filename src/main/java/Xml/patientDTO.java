@@ -1,4 +1,4 @@
-package DataBase;
+package Xml;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -11,14 +11,13 @@ import javax.xml.bind.annotation.XmlType;
         "lastName",
         "email"
 })
-public class HtmlDTO {
+public class patientDTO {
 
     private String cpr;
     private String firstName;
     private String lastName;
     private String email;
 
-    @XmlElement(name = "patientInfo")
     public String getCpr() {
         return cpr;
     }

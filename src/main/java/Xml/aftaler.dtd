@@ -1,0 +1,11 @@
+<!ELEMENT aftaler (aftale*)>
+        <!ELEMENT aftale (info*)>
+
+
+        <!ELEMENT info (cpr,date,time,hospital,adresse,læge)>
+        <!ELEMENT cpr (#PCDATA)>
+        <!ELEMENT date (#PCDATA)>
+        <!ELEMENT time (#PCDATA)>
+        <!ELEMENT hospital (#PCDATA)>
+        <!ELEMENT adresse (#PCDATA)>
+        <!ELEMENT læge (#PCDATA)>
