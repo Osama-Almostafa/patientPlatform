@@ -14,8 +14,8 @@ body {
 
 #box {
     background-color: whitesmoke;
-    margin-top: 170px;
-    margin-left: 330px;
+    margin-top: 220px;
+    margin-left: 380px;
     width: auto;
     border: 2px solid;
     padding: 40px;
@@ -41,4 +41,7 @@ ul li a {
 ul li a:hover {
     background-color: black;
     color: white;
+}
+#button{
+    margin-right: 0;
 }
