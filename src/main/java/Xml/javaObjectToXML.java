@@ -7,32 +7,37 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class javaObjectToXML {
 
     private static final String patientDTO_XML = "patientDto.xml";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader bf = new BufferedReader(isr);
-        List<patientDTO> patientDTOS = new ArrayList<>();
-        patientDTO patientDTO1 = new patientDTO();
-        System.out.println("Type a Cpr: ");
-        String cpr = bf.readLine();
-        System.out.println("Type a First name: ");
-        String fName = bf.readLine();
-        System.out.println("Type a Last name: ");
-        String lName = bf.readLine();
-        System.out.println("Type an Email: ");
-        String email = bf.readLine();
-        patientDTO1.setCpr(cpr);
-        patientDTO1.setFirstName(fName);
-        patientDTO1.setLastName(lName);
-        patientDTO1.setEmail(email);
-        patientDTOS.add(patientDTO1);
-        convertObjectToXML(patientDTO1);
+        patientDTO patientDTO = getPatientDTO(bf);
+        convertObjectToXML(patientDTO);
+    }
+
+    private static patientDTO getPatientDTO(BufferedReader bf){
+        patientDTO patientDTO = new patientDTO();
+        try {
+            System.out.println("Type a Cpr: ");
+            String cpr = bf.readLine();
+            System.out.println("Type a First name: ");
+            String fName = bf.readLine();
+            System.out.println("Type a Last name: ");
+            String lName = bf.readLine();
+            System.out.println("Type an Email: ");
+            String email = bf.readLine();
+            patientDTO.setCpr(cpr);
+            patientDTO.setFirstName(fName);
+            patientDTO.setLastName(lName);
+            patientDTO.setEmail(email);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return patientDTO;
     }
 
     private static void convertObjectToXML(patientDTO patientDTO) {

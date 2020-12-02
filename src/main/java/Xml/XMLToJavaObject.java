@@ -8,7 +8,7 @@ import java.io.File;
 public class XMLToJavaObject {
     public static void main(String[] args) {
         try {
-            File file = new File("htmlDto-jaxb.xml");
+            File file = new File("patientDto.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(patientDTO.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             patientDTO patientDTO = (patientDTO) jaxbUnmarshaller.unmarshal(file);
