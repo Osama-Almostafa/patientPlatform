@@ -6,39 +6,46 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Connector {
+
+    private static final String jdbcDriver = "com.mysql.cj.jdbc.Driver";
+    private static final String dbUrl = "jdbc:mysql://localhost:3306/";
+    private static final String dbName = "random";
+    private static final String dbUsername = "root";
+    private static final String dbPassword = "Osama123";
     private static Connection conn;
 
-    private Connector() {
+    public static void main(String[] args) {
+        getConnection();
+        closeConnection();
     }
 
-    public static Connection getConn() {
+    public static Connection getConnection() {
         try {
             if (conn == null || conn.isClosed()) {
-                //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/random?" +
-                       //"user=Brate&password=bror");
-                conn = DriverManager.getConnection("jdbc:mysql://10.16.238.59:3306/eri?" +
-                        "user=tizi&password=8210");
-                System.out.println("Connection established");
+                Class.forName(jdbcDriver);
+                conn = DriverManager.getConnection(dbUrl + dbName, dbUsername, dbPassword);
+                System.out.println("Connected database successfully...");
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return conn;
     }
 
-    public static void colseConn() {
+    public static void closeConnection() {
         try {
             if (conn != null && !conn.isClosed()) {
                 conn.close();
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException se) {
+            se.printStackTrace();
         }
+        System.out.println("Goodbye!");
     }
 
     public static void createPuls() {
         try {
-            Statement statement = Connector.getConn().createStatement();
+            Statement statement = Connector.getConnection().createStatement();
             statement.executeUpdate("CREATE TABLE dinfaaaar (Patient_id INT," +
                     "Puls_measurements DOUBLE,Puls_time timestamp(3))");
         } catch (SQLException e) {
@@ -48,18 +55,12 @@ public class Connector {
 
     public static void deletePuls() {
         try {
-            Statement statement = Connector.getConn().createStatement();
-            statement.executeUpdate("DROP TABLE PULS");
-            Connector.getConn().close();
+            Statement statement = Connector.getConnection().createStatement();
+            statement.executeUpdate("DROP TABLE dinfaaaar");
+            Connector.getConnection().close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        getConn();
-        deletePuls();
-        createPuls();
     }
 }
 
