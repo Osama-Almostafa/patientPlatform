@@ -9,11 +9,11 @@
     <link rel="stylesheet" type="text/css" href="../CSS/Bestil tid.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div id="box">
-        <form method="get" action="">
+        <form method="post" action="/cgi-bin/CGIMeeting">
             <h1 id="hospital">Vælg venligst Hospital &amp; afdeling:</h1>
             <br>
             <label style="font-size: 30px">Hospital:
-                <select style="font-size: 25px">
+                <select name="hospital" style="font-size: 25px">
                     <option>Vælg hospital</option>
                     <option>Amager Hospital</option>
                     <option>Bispebjerg Hospital</option>
@@ -31,13 +31,13 @@
             </label>
             <br><br>
             <label style="font-size: 30px">Afdeling:
-                <select style="font-size: 25px">
+                <select name="afdeling" style="font-size: 25px">
                     <option>Vælg afdeling</option>
                     <option>Blodprøver</option>
                     <option>Billeddiagnostisk Afdeling</option>
                     <option>Børne- og Ungeafdelingen</option>
                     <option>Endokrinologisk og Nefrologisk Afdeling</option>
-                    <option>Graviditet, Fødsel & Barsel</option>
+                    <option>Graviditet, Fødsel og Barsel</option>
                     <option>Kardiologisk Afdeling</option>
                     <option>Kirurgisk Afdeling</option>
                     <option>Lunge- og Infektionsmedicinsk Afdeling</option>
@@ -48,13 +48,18 @@
                 </select>
             </label>
             <br><br>
-            <h2 for="meeting-time" style="font-size: 22px">Bestil tid og dato:
+            <h2 for="meeting-time" style="font-size: 22px">Vælg venligst dato & tid:
                 <br><br>
-                <input type="datetime-local" style="font-size: 25px" id="meeting-time"
-                       name="meeting-time"
-                       min="2020-11-07T00:00" max="2030-12-14T00:00"/>
+                <input type="date" style="font-size: 25px" name="meeting-date" min="2020-11-07" max="2030-12-14"/>
+                <br><br>
+                <input type="time" style="font-size: 25px" name="meeting-time" min="00:00" max="23:59">
                 <br><br>
             </h2>
+            <h2>Skriv cpr og trykke på bekræft</h2>
+            <br>
+            <label>
+                <input type="text" style="font-size: 25px" name="username" class="login-form-field" placeholder="Cpr-nummer">
+            </label>
             <input type="submit" style="font-size: 25px" value="Bekræft"/>
         </form>
     </div>

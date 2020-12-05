@@ -6,7 +6,9 @@ import java.io.InputStreamReader;
 import java.sql.*;
 
 public class CGIDbValidate {
-    public CGIDbValidate(){}
+    public CGIDbValidate() {
+    }
+
     private static final String jdbcDriver = "org.mariadb.jdbc.Driver";
     private static final String dbUrl = "jdbc:mariadb://su7.eduhost.dk:3306/";
     private static final String dbName = "Gruppe5?";
@@ -20,6 +22,10 @@ public class CGIDbValidate {
     static String paswdTilDb;
     static String cprSql = null;
     static String paswdSql = null;
+    static Time timeSql = null;
+    static Date dateSql = null;
+    static String hospitalSql = null;
+    static String departmentsSql = null;
 
     public static void main(String[] args) {
         showHead();
@@ -36,7 +42,7 @@ public class CGIDbValidate {
             paswd = clientResponse[1].split("=");
             paswdTilDb = paswd[1];
             if (findUser(cprTilDb, paswdTilDb)) {
-                showBody();
+                getAppointment();
             }
         } catch (IOException ioe) {
             System.out.println("<P>IOException reading POST data: " + ioe + "</P>");
@@ -58,17 +64,13 @@ public class CGIDbValidate {
         System.out.println("<META http-equiv=\"Pragma\" content=\"no-cache\">");
         System.out.println("<META http-equiv=\"expires\" content=\"0\">");
         System.out.println("</HEAD>");
-    }
-
-    private static void showBody() {
         System.out.println("<body>\n" +
                 "<header>\n" +
                 "    <div>\n" +
                 "        <p>Min Sundhedsplatform</p>\n" +
                 "        <ul>\n" +
-                "            <li><a href=\"/index.html\">Login</a></li>\n" +
-                "            <li><a href=\"/home.html\">Hjem</a></li>\n" +
                 "            <li><a href=\"/Bestil tid.html\">Bestil tid</a></li>\n" +
+                "            <li><a href=\"/index.html\">Log ud</a></li>\n" +
                 "        </ul>\n" +
                 "    </div>\n" +
                 "</header>\n" +
@@ -76,46 +78,39 @@ public class CGIDbValidate {
                 "    <caption><b>Kommende tider</b></caption>\n" +
                 "    <tr>\n" +
                 "        <th><b>Hospital</b></th>\n" +
-                "        <th><b>Sted</b></th>\n" +
+                "        <th><b>Afdeling</b></th>\n" +
+                "        <th><b>Tidspunkt</b></th>\n" +
                 "        <th><b>Dato</b></th>\n" +
-                "    </tr>\n" +
+                "    </tr>\n");
+    }
+
+    private static void showBody() {
+        System.out.println(
                 "    <tr>\n" +
-                "        <td></td>\n" +
-                "        <td></td>\n" +
-                "        <td></td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <td></td>\n" +
-                "        <td></td>\n" +
-                "        <td></td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <td></td>\n" +
-                "        <td></td>\n" +
-                "        <td></td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <td></td>\n" +
-                "        <td></td>\n" +
-                "        <td></td>\n" +
-                "    </tr>\n" +
-                "</table>\n");
+                "        <td>" + hospitalSql + "</td>\n" +
+                "        <td>" + departmentsSql + "</td>\n" +
+                "        <td>" + timeSql + "</td>\n" +
+                "        <td>" + dateSql + "</td>\n" +
+                "    </tr>\n");
     }
 
     private static void showTail() {
-        System.out.println("</body>\n" + "</HTML>");
+        System.out.println("</table>\n" + "</body>\n" + "</HTML>");
     }
 
-    private static void getAppointment(){
+    private static void getAppointment() {
         try {
-            String sql = "select  from Gruppe5.aftaler where cpr= " + "'" + cprTilDb + "'" + "and paswd ="
-                    + "'" + paswdTilDb + "'";
+            String sql = "select tim,dat,hospital,departments from Gruppe5.aftaler where cpr= '" +
+                    cprTilDb + "'";
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
-            rs.next();
-            //System.out.println("cpr: " + rs.getString("cpr") + "\n" + "pass: " + rs.getString("paswd") + "\n");
-            cprSql = rs.getString("cpr");
-            paswdSql = rs.getString("paswd");
+            while (rs.next()) {
+                timeSql = rs.getTime("tim");
+                dateSql = rs.getDate("dat");
+                hospitalSql = rs.getString("hospital");
+                departmentsSql = rs.getString("departments");
+                showBody();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -125,9 +120,7 @@ public class CGIDbValidate {
         try {
             if (connection == null || connection.isClosed()) {
                 Class.forName(jdbcDriver);
-                System.out.println("Connecting to a selected database...");
                 connection = DriverManager.getConnection(dbUrl + dbName, dbUsername, dbPassword);
-                System.out.println("Connected database successfully...");
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -142,7 +135,6 @@ public class CGIDbValidate {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             rs.next();
-            //System.out.println("cpr: " + rs.getString("cpr") + "\n" + "pass: " + rs.getString("paswd") + "\n");
             cprSql = rs.getString("cpr");
             paswdSql = rs.getString("paswd");
         } catch (SQLException e) {
