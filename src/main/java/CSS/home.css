@@ -4,32 +4,22 @@
     font-family: Arial, sans-serif;
 }
 
-
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Images/backGround.jpg");
-    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/backGround.jpg");
+    height: 100%;
+    width: 100%;
     background-size: cover;
     background-position: center;
-    display: flex;
     justify-content: center;
-    align-content: center;
+    display: flex;
 }
 
-h1{
-    text-align: left;
-    color: #fff;
-    margin-top: 70px;
-    font-size: 45px;
-    letter-spacing: 2px;
-}
-
- p {
+p {
     color: black;
     font-size: 30px;
     line-height: 55px;
-    margin-left: 0;
     float: left;
-    padding: 0 100px;
+    padding: 0 120px;
 }
 
 ul {
@@ -57,61 +47,47 @@ ul li a:hover {
     color: white;
 }
 
-ul li ul {
-    display: none;
-    position: absolute;
-}
-
-ul li:hover ul {
-    display: block;
-}
-
-ul li ul li {
-    margin-top: 0px;
-    width: 240px;
-    border-radius: 2px;
-    transition: 1s ease;
-}
-
-ul li ul li a {
-    padding: 10px 40px;
-}
-
-ul li.active a {
-    background-color: white;
-    color: black;
-}
-
 table {
-    width: 100px;
-    height: 150px;
     position: fixed;
-    margin-top: 200px;
+    margin-top: 180px;
     justify-items: center;
     align-items: center;
+    border-collapse: collapse;
 }
 
-caption{
+caption {
     color: black;
     font-size: 35px;
 }
 
-th {
-    text-align: center;
-    background-color: transparent;
+thead {
+    float: top;
+    display: table-caption;
 }
 
-table, th, td {
+tbody {
+    display: block;
+    height: 362px;
+    overflow-y: auto;
+}
+
+td, th {
     text-align: center;
-    width: 500px;
+    padding: 20px;
     border: 2px solid #000;
-    border-collapse: collapse;
     color: black;
 }
-
-th, td {
-    padding: 30px;
-    width: auto;
+#hospital{
+    width:161.5px;
+}
+#afdeling{
+   width: 282px;
+}
+#tid{
+    width: 63px;
+}
+#dato{
+    width: 81px;
 }
 
 tr:nth-child(even) {

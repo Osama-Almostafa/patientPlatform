@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../CSS/login-page.css">
+    <link rel="stylesheet" href="/login-page.css">
 </head>
 
 <body>
 <main id="main-holder">
     <div id="img-holder">
-        <img src="../Images/nemId.png" height="65" width="200"/>
+        <img src="/nemId.png" height="65" width="200"/>
         <p>Nem-id login</p>
     </div>
-    <form id="login-form" action="/cgi-bin/CGIpost" method="post">
+    <form id="login-form" action="/cgi-bin/CGIDbValidate" method="post">
         <input type="text" name="username" id="username-field" class="login-form-field"
                placeholder="Username">
         <input type="password" name="password" id="password-field" class="login-form-field"

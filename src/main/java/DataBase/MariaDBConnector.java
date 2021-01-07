@@ -7,7 +7,7 @@ import java.sql.*;
 public class MariaDBConnector {
 
     private static final String jdbcDriver = "org.mariadb.jdbc.Driver";
-    private static final String dbUrl = "jdbc:mariadb://su7.eduhost.dk:3306/";
+    private static final String dbUrl = "jdbc:mariadb://130.226.195.37:39027/";
     private static final String dbName = "Gruppe5?";
     private static final String dbUsername = "osama";
     private static final String dbPassword = "8210";
@@ -17,10 +17,11 @@ public class MariaDBConnector {
     private static String cpr;
 
     public static void main(String[] args) {
-        findUser(cpr);
+        getConnection();
+        System.out.println("hala");
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         try {
             if (conn == null || conn.isClosed()) {
                 Class.forName(jdbcDriver);

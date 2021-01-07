@@ -24,11 +24,11 @@ public class CGIDbValidate {
     static String paswdSql = null;
     static Time timeSql = null;
     static Date dateSql = null;
+    static int aftaleId = 0;
     static String hospitalSql = null;
     static String departmentsSql = null;
 
     public static void main(String[] args) {
-        showHead();
         getConnection();
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -42,12 +42,14 @@ public class CGIDbValidate {
             paswd = clientResponse[1].split("=");
             paswdTilDb = paswd[1];
             if (findUser(cprTilDb, paswdTilDb)) {
+                showHead();
+                showBody();
                 getAppointment();
+                showTail();
             }
         } catch (IOException ioe) {
             System.out.println("<P>IOException reading POST data: " + ioe + "</P>");
         }
-        showTail();
     }
 
 
@@ -64,6 +66,9 @@ public class CGIDbValidate {
         System.out.println("<META http-equiv=\"Pragma\" content=\"no-cache\">");
         System.out.println("<META http-equiv=\"expires\" content=\"0\">");
         System.out.println("</HEAD>");
+    }
+
+    private static void showBody() {
         System.out.println("<body>\n" +
                 "<header>\n" +
                 "    <div>\n" +
@@ -76,31 +81,41 @@ public class CGIDbValidate {
                 "</header>\n" +
                 "<table>\n" +
                 "    <caption><b>Kommende tider</b></caption>\n" +
+                "    <thead>\n" +
                 "    <tr>\n" +
-                "        <th><b>Hospital</b></th>\n" +
-                "        <th><b>Afdeling</b></th>\n" +
-                "        <th><b>Tidspunkt</b></th>\n" +
-                "        <th><b>Dato</b></th>\n" +
-                "    </tr>\n");
+                "        <th id=\"hospital\"><b>Hospital</b></th>\n" +
+                "        <th id=\"afdeling\"><b>Afdeling</b></th>\n" +
+                "        <th id=\"tid\"><b>Tid</b></th>\n" +
+                "        <th id=\"dato\"><b>Dato</b></th>\n" +
+                "    </tr>\n" +
+                "    </thead>\n" +
+                "    <tbody>");
     }
 
-    private static void showBody() {
-        System.out.println(
-                "    <tr>\n" +
+    private static void showAppointments() {
+        System.out.println("<tr>\n" +
                 "        <td>" + hospitalSql + "</td>\n" +
                 "        <td>" + departmentsSql + "</td>\n" +
                 "        <td>" + timeSql + "</td>\n" +
                 "        <td>" + dateSql + "</td>\n" +
-                "    </tr>\n");
+                "        <td>\n" +
+                "            <form action=\"/cgi-bin/CGIDelete\"><input type=\"submit\" value=\"delete\">" +
+                "<input type=\"hidden\"value=\"" + aftaleId + "\">\n" +
+                "            </form>\n" +
+                "        </td>\n" +
+                "    </tr>");
     }
 
     private static void showTail() {
-        System.out.println("</table>\n" + "</body>\n" + "</HTML>");
+        System.out.println("</tbody>\n" +
+                "</table>\n" +
+                "</body>\n" +
+                "</HTML>\n");
     }
 
     private static void getAppointment() {
         try {
-            String sql = "select tim,dat,hospital,departments from Gruppe5.aftaler where cpr= '" +
+            String sql = "select aftaleId,tim,dat,hospital,departments from Gruppe5.aftaler where cpr= '" +
                     cprTilDb + "'";
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
@@ -109,7 +124,8 @@ public class CGIDbValidate {
                 dateSql = rs.getDate("dat");
                 hospitalSql = rs.getString("hospital");
                 departmentsSql = rs.getString("departments");
-                showBody();
+                aftaleId = rs.getInt("aftaleId");
+                showAppointments();
             }
         } catch (SQLException e) {
             e.printStackTrace();
