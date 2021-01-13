@@ -1,5 +1,8 @@
 package CommonGatewayInterface;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.*;
 
 public class CGIDelete {
@@ -12,6 +15,8 @@ public class CGIDelete {
     private static final String dbUsername = "osama";
     private static final String dbPassword = "8210";
     private static Connection connection = null;
+    static String[] inputfraCGI = null;
+    private static String[] data;
     static String cprSql = null;
     static Time timeSql = null;
     static Date dateSql = null;
@@ -20,11 +25,20 @@ public class CGIDelete {
     static String departmentsSql = null;
 
     public static void main(String[] args) {
-        showHead();
-        getConnection();
-        deleteAftale();
-        getAppointment();
-        showTail();
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            data = new String[]{in.readLine()};
+            inputfraCGI = data[0].split("=");
+            aftaleId = Integer.parseInt(inputfraCGI[1]);
+            getConnection();
+            getCpr();
+            showHead();
+            deleteAftale();
+            getAppointment();
+            showTail();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static Connection getConnection() {
@@ -39,12 +53,23 @@ public class CGIDelete {
         return connection;
     }
 
+    private static void getCpr() {
+        try {
+            String sql = "select cpr from Gruppe5.aftaler where aftaleId =" + aftaleId + "";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            rs.next();
+            cprSql = rs.getString("cpr");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void deleteAftale() {
         try {
             String sql = "delete from Gruppe5.aftaler where aftaleId=\"" + aftaleId + "\";";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.executeUpdate();
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,7 +86,7 @@ public class CGIDelete {
                 dateSql = rs.getDate("dat");
                 hospitalSql = rs.getString("hospital");
                 departmentsSql = rs.getString("departments");
-                aftaleId = rs.getInt("afteleId");
+                aftaleId = rs.getInt("aftaleId");
                 showBody();
             }
         } catch (SQLException e) {
@@ -112,11 +137,13 @@ public class CGIDelete {
                         "        <td>" + departmentsSql + "</td>\n" +
                         "        <td>" + timeSql + "</td>\n" +
                         "        <td>" + dateSql + "</td>\n" +
+                        "        <td>" + aftaleId + "</td>\n" +
                         "        <td>\n" +
-                        "           <form action=\"/cgi-bin/CGIDelete\"><input type=\"submit\" value=\"delete\">" +
-                        "<input type=\"hidden\"value=\"" + aftaleId + "\">\n" +
+                        "            <form action=\"/cgi-bin/CGIDelete\" method=\"post\">\n" +
+                        "                <input type=\"text\" name=\"aftaleId\"style=\"width: 35px\">\n" +
+                        "                <input type=\"submit\" value=\"slet\"/>\n" +
                         "            </form>\n" +
-                        "        </td>" +
+                        "        </td> "+
                         "    </tr>\n");
     }
 

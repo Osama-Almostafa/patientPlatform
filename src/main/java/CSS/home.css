@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/backGround.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Images/backGround.jpg");
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -77,6 +77,13 @@ td, th {
     border: 2px solid #000;
     color: black;
 }
+tr th{
+    width: 150px;
+}
+tr td {
+    width: 150px;
+}
+
 #hospital{
     width:161.5px;
 }

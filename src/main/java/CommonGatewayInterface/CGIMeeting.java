@@ -155,11 +155,13 @@ public class CGIMeeting {
                         "        <td>" + departmentsSql + "</td>\n" +
                         "        <td>" + timeSql + "</td>\n" +
                         "        <td>" + dateSql + "</td>\n" +
+                        "        <td>" + aftaleId + "</td>\n" +
                         "        <td>\n" +
-                        "           <form action=\"/cgi-bin/CGIDelete\"><input type=\"submit\" value=\"delete\">" +
-                        "<input type=\"hidden\"value=\"" + aftaleId + "\">\n" +
+                        "            <form action=\"/cgi-bin/CGIDelete\" method=\"post\">\n" +
+                        "                <input type=\"text\" name=\"aftaleId\"style=\"width: 35px\">\n" +
+                        "                <input type=\"submit\" value=\"slet\"/>\n" +
                         "            </form>\n" +
-                        "        </td>" +
+                        "        </td> "+
                         "    </tr>\n");
     }
 

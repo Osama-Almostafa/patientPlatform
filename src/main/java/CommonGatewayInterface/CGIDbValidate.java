@@ -93,17 +93,20 @@ public class CGIDbValidate {
     }
 
     private static void showAppointments() {
-        System.out.println("<tr>\n" +
-                "        <td>" + hospitalSql + "</td>\n" +
-                "        <td>" + departmentsSql + "</td>\n" +
-                "        <td>" + timeSql + "</td>\n" +
-                "        <td>" + dateSql + "</td>\n" +
-                "        <td>\n" +
-                "            <form action=\"/cgi-bin/CGIDelete\"><input type=\"submit\" value=\"delete\">" +
-                "<input type=\"hidden\"value=\"" + aftaleId + "\">\n" +
-                "            </form>\n" +
-                "        </td>\n" +
-                "    </tr>");
+        System.out.println(
+                "    <tr>\n" +
+                        "        <td>" + hospitalSql + "</td>\n" +
+                        "        <td>" + departmentsSql + "</td>\n" +
+                        "        <td>" + timeSql + "</td>\n" +
+                        "        <td>" + dateSql + "</td>\n" +
+                        "        <td>" + aftaleId + "</td>\n" +
+                        "        <td>\n" +
+                        "            <form action=\"/cgi-bin/CGIDelete\" method=\"post\">\n" +
+                        "                <input type=\"text\" name=\"aftaleId\"style=\"width: 35px\">\n" +
+                        "                <input type=\"submit\" value=\"slet\"/>\n" +
+                        "            </form>\n" +
+                        "        </td> "+
+                        "    </tr>\n");
     }
 
     private static void showTail() {
